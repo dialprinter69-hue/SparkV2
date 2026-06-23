@@ -1,0 +1,234 @@
+<resources>
+    <string name="app_name">SparkV2</string>
+    <string name="app_tagline">Tu compañero inteligente para Spark Driver</string>
+
+    <!-- Master control -->
+    <string name="master_start">Iniciar bot</string>
+    <string name="master_stop">Detener bot</string>
+    <string name="stop_confirm_message">¿Detener el bot? Dejará de evaluar ofertas automáticamente.</string>
+    <string name="permissions_required_to_start">Concede accesibilidad y notificaciones para iniciar el bot.</string>
+    <string name="enable_bot">Activar bot</string>
+    <string name="permissions_pending">Permisos pendientes</string>
+
+    <!-- Status -->
+    <string name="status_active">Activo · leyendo Spark Driver</string>
+    <string name="status_missing_accessibility">Falta el servicio de accesibilidad</string>
+    <string name="status_missing_notification">Falta acceso a notificaciones</string>
+    <string name="status_missing_both">Faltan permisos para funcionar</string>
+    <string name="status_disabled">Bot detenido</string>
+
+    <!-- Session stats -->
+    <string name="session_summary">Resumen de sesión</string>
+    <string name="stat_accepted">Aceptadas</string>
+    <string name="stat_declined">Rechazadas</string>
+    <string name="stat_earnings">Ganancias est.</string>
+    <string name="stat_accept_rate">Tasa de aceptación</string>
+    <string name="stat_today">Hoy</string>
+    <string name="stat_lifetime">Histórico</string>
+    <string name="lifetime_summary">%1$d aceptadas · %2$d rechazadas · $%3$s ganado</string>
+
+    <!-- Permissions -->
+    <string name="permissions_section">Permisos</string>
+    <string name="permissions_all_ok">Todo listo · permisos concedidos</string>
+    <string name="permission_accessibility">Accesibilidad</string>
+    <string name="permission_accessibility_sub">Leer la pantalla de Spark Driver</string>
+    <string name="permission_notifications">Notificaciones</string>
+    <string name="permission_notifications_sub">Detectar alertas de nuevas ofertas</string>
+    <string name="permission_granted">Concedido</string>
+    <string name="permission_missing">Pendiente</string>
+    <string name="grant_notification_access">Conceder acceso a notificaciones</string>
+    <string name="grant_accessibility_access">Activar servicio de accesibilidad</string>
+    <string name="accessibility_service_description">SparkV2 lee la pantalla de Spark Driver para detectar ofertas, evaluarlas según tus filtros y aceptar o rechazar automáticamente (rechazo en dos pasos).</string>
+
+    <!-- Quick mode -->
+    <string name="section_quick_mode">Modo rápido</string>
+    <string name="quick_mode_hint">Presets según el volumen de ofertas que quieres aceptar.</string>
+    <string name="quick_mode_custom">Personalizado</string>
+    <string name="quick_mode_premium">Premium</string>
+    <string name="quick_mode_premium_sub">Solo las top ($4.00+/mi, cortas y bien pagadas)</string>
+    <string name="quick_mode_picky">Picky</string>
+    <string name="quick_mode_picky_sub">Bajo volumen · solo las mejores ($3.50+/mi, vuelta a tienda)</string>
+    <string name="quick_mode_balanced">Balanced</string>
+    <string name="quick_mode_balanced_sub">Volumen medio · ofertas sólidas ($2.75+/mi)</string>
+    <string name="quick_mode_slow_shift">Slow Shift</string>
+    <string name="quick_mode_slow_shift_sub">Alto volumen · turno lento ($2.25+/mi mínimo)</string>
+    <string name="volume_min">Mín</string>
+    <string name="volume_low">Bajo</string>
+    <string name="volume_medium">Medio</string>
+    <string name="volume_high">Alto</string>
+
+    <!-- Filters -->
+    <string name="section_automation">Acciones automáticas</string>
+    <string name="auto_accept">Auto-aceptar</string>
+    <string name="auto_accept_sub">Aceptar ofertas que cumplan los filtros</string>
+    <string name="auto_decline">Auto-rechazar</string>
+    <string name="auto_decline_sub">Rechazar ofertas que no cumplan (2 pasos)</string>
+    <string name="debug_mode">Modo diagnóstico</string>
+    <string name="debug_mode_sub">Vuelca la pantalla de Spark al registro para depurar por qué no acepta/rechaza</string>
+    <string name="ocr_fallback">Respaldo OCR</string>
+    <string name="ocr_fallback_sub">Lee ofertas por captura cuando la pantalla de Spark es ilegible (canvas). Solo auto-aceptar</string>
+    <string name="turbo_mode">Modo turbo</string>
+    <string name="turbo_mode_sub">Escaneos y taps más rápidos. Apágalo si Spark Driver empieza a ir lento</string>
+    <string name="aggressive_turbo">Turbo agresivo</string>
+    <string name="aggressive_turbo_sub">Mínimos retrasos — reacción más rápida. Requiere turbo. Apágalo si Spark falla taps o va lento</string>
+    <string name="turbo_badge">TURBO</string>
+    <string name="aggressive_turbo_badge">TURBO+</string>
+    <string name="super_aggressive_turbo">Turbo super agresivo</string>
+    <string name="super_aggressive_turbo_sub">Velocidad máxima experimental — solo para probar. Requiere turbo agresivo. Apágalo si Spark va lento o falla taps</string>
+    <string name="super_aggressive_turbo_badge">MAX</string>
+    <string name="section_filters">Filtros de oferta</string>
+    <string name="filters_hint">Una oferta se acepta solo si cumple TODOS los filtros.</string>
+    <string name="reset_filters">Restablecer</string>
+    <string name="reset_filters_confirm_title">¿Restablecer todos los filtros?</string>
+    <string name="reset_filters_confirm_message">Restaura controles, tipos de orden, etiquetas y tiendas seleccionadas. Se mantienen los interruptores del bot y los permisos.</string>
+    <string name="reset_filters_confirm">Restablecer filtros</string>
+    <string name="dollars_per_mile">Mínimo por milla</string>
+    <string name="dollars_per_mile_hint">0 = sin mínimo</string>
+    <string name="max_distance">Distancia máxima</string>
+    <string name="min_pay">Pago mínimo</string>
+    <string name="min_pay_hint">0 = sin mínimo</string>
+    <string name="max_dropoffs">Máx. entregas</string>
+    <string name="decrease_dropoffs">Reducir máximo de entregas</string>
+    <string name="increase_dropoffs">Aumentar máximo de entregas</string>
+    <string name="mascot_content_description">Mascota del bot Spark</string>
+
+    <!-- Order types -->
+    <!-- Filtros avanzados de Spark -->
+    <string name="section_advanced">Avanzado (datos de Spark)</string>
+    <string name="advanced_hint">Filtros extra usando el desglose de pago y el tiempo que muestra Spark. Una oferta que no expone un valor nunca se rechaza por ese filtro.</string>
+    <string name="min_per_hour">Mínimo por hora</string>
+    <string name="min_per_hour_hint">Usa el tiempo estimado de la oferta. 0 = desactivado</string>
+    <string name="min_base_pay">Pago base mínimo</string>
+    <string name="min_base_pay_hint">Pago sin propina — protege contra retiro de propina. 0 = desactivado</string>
+    <string name="max_tip_ratio">% máx. de propina</string>
+    <string name="max_tip_ratio_hint">Rechaza si la propina supera esta parte del pago. Off = permite cualquiera</string>
+    <string name="max_deadhead">Distancia máx. a tienda</string>
+    <string name="max_deadhead_hint">Millas en vacío hasta recoger. 0 = desactivado (a veces no se muestra)</string>
+    <string name="item_limit">Limitar artículos (Shop &amp; Deliver)</string>
+    <string name="item_limit_sub">Desactivado por defecto — leer el conteo exacto requiere un toque de detalle y puede frenar la captura</string>
+    <string name="max_items">Máx. artículos</string>
+    <string name="value_off">Off</string>
+    <string name="decrease_items">Reducir máx. de artículos</string>
+    <string name="increase_items">Aumentar máx. de artículos</string>
+
+    <!-- Meta y horario -->
+    <string name="section_goal">Meta y horario</string>
+    <string name="goal_hint">Pausa el bot automáticamente cuando ya ganaste suficiente o estás fuera de tu horario.</string>
+    <string name="earnings_goal">Meta de ganancias diaria</string>
+    <string name="earnings_goal_hint">Pausa cuando las ganancias de hoy lleguen a esto. 0 = desactivado</string>
+    <string name="operating_hours">Solo en horario</string>
+    <string name="operating_hours_sub">Actuar sobre ofertas solo dentro de una franja horaria</string>
+    <string name="start_hour">Hora inicio</string>
+    <string name="end_hour">Hora fin</string>
+    <string name="decrease_hour">Reducir hora</string>
+    <string name="increase_hour">Aumentar hora</string>
+
+    <string name="section_order_types">Tipos de oferta permitidos</string>
+    <string name="order_types_hint">Solo se aceptan los tipos activados.</string>
+    <string name="shop_and_deliver">Shop &amp; Deliver</string>
+    <string name="shop_deliver_curbside">Shop &amp; Deliver Curbside</string>
+    <string name="curbside">Curbside</string>
+    <string name="pharmacy">Pharmacy</string>
+    <string name="dotcom">Dotcom</string>
+    <string name="customer_returns">Customer Returns</string>
+
+    <!-- Offer tags -->
+    <string name="section_offer_tags">Etiquetas de oferta permitidas</string>
+    <string name="offer_tags_hint">Si la oferta incluye una etiqueta, debe estar activada.</string>
+    <string name="bulky_items">Bulky Item</string>
+    <string name="shopper_bulk">Shopper Bulk</string>
+    <string name="apartment">Apartment</string>
+    <string name="customer_verification">Customer Verification</string>
+    <string name="alcohol">Alcohol</string>
+    <string name="heavy">Heavy</string>
+
+    <!-- Tabs -->
+    <string name="tab_settings">Ajustes</string>
+    <string name="tab_decisions">Decisiones</string>
+    <string name="store_searching">Buscando tiendas…</string>
+
+    <!-- Offer history -->
+    <string name="offer_history">Decisiones de ofertas</string>
+    <string name="clear_offers">Limpiar</string>
+    <string name="no_offers_yet">Sin ofertas evaluadas todavía. Inicia el bot y abre Spark Driver cuando llegue una oferta.</string>
+    <string name="outcome_accepted">Aceptada</string>
+    <string name="outcome_declined">Rechazada</string>
+    <string name="outcome_skipped_accept">Cumple filtros · auto-aceptar off</string>
+    <string name="outcome_skipped_decline">No cumple filtros · auto-rechazar off</string>
+    <string name="why_accepted">Por qué se aceptó</string>
+    <string name="why_declined">Por qué se rechazó</string>
+    <string name="why_skipped_accept">Se aceptaría · auto-aceptar desactivado</string>
+    <string name="why_skipped_decline">Se rechazaría · auto-rechazar desactivado</string>
+    <string name="offer_types">Tipos</string>
+    <string name="offer_tags">Etiquetas</string>
+    <string name="offer_none_detected">Ninguno detectado</string>
+    <string name="criterion_min_pay">Pago mínimo</string>
+    <string name="criterion_max_distance">Distancia</string>
+    <string name="criterion_dollars_per_mile">Por milla</string>
+    <string name="criterion_dollars_per_hour">Por hora</string>
+    <string name="criterion_min_base_pay">Pago base</string>
+    <string name="criterion_max_tip_ratio">% propina</string>
+    <string name="criterion_max_deadhead">Hasta tienda</string>
+    <string name="criterion_max_items">Artículos</string>
+    <string name="criterion_max_dropoffs">Entregas</string>
+    <string name="criterion_order_types">Tipos de oferta</string>
+    <string name="criterion_offer_tags">Etiquetas</string>
+    <string name="criterion_unknown_skipped">Desconocido — filtro omitido</string>
+    <string name="criterion_value_format">%1$s · requiere %2$s</string>
+    <string name="criterion_types_ok">Todos los tipos detectados permitidos</string>
+    <string name="criterion_types_fail">Tipo no permitido en la oferta</string>
+    <string name="criterion_tags_ok">Todas las etiquetas detectadas permitidas</string>
+    <string name="criterion_tags_fail">Etiqueta no permitida en la oferta</string>
+    <string name="flag_not_allowed">no permitido</string>
+
+    <!-- Registro de actividad -->
+    <string name="activity_log">Actividad</string>
+    <string name="activity_empty">Sin actividad aún. Las acciones del bot aparecerán aquí mientras se ejecuta.</string>
+    <string name="clear_activity">Limpiar</string>
+
+    <!-- Foreground service -->
+    <string name="foreground_channel_name">SparkV2 Bot</string>
+    <string name="foreground_channel_description">Mantiene el bot activo mientras evalúa ofertas en Spark Driver</string>
+    <string name="foreground_notification_title">SparkV2 activo</string>
+    <string name="foreground_notification_text">Monitoreando ofertas en Spark Driver</string>
+    <string name="foreground_notification_live">Hoy: %1$d aceptadas · $%2$s · %3$d rechazadas</string>
+
+    <!-- Runtime log messages -->
+    <string name="log_notification_denied">Permiso de notificaciones del sistema denegado</string>
+    <string name="log_start_blocked">Inicio bloqueado: concede accesibilidad y notificaciones</string>
+    <string name="log_spark_alert_scanning">Alerta Spark — escaneando pantalla</string>
+    <string name="log_accessibility_disconnected">Accesibilidad desconectada — verifica que SparkV2 siga activo en Ajustes</string>
+    <string name="log_foreground_active">Servicio en primer plano activo</string>
+    <string name="log_accessibility_connected">Servicio de accesibilidad conectado — monitoreando: %1$s</string>
+    <string name="log_accessibility_interrupted">Servicio de accesibilidad interrumpido</string>
+    <string name="log_no_spark_window">Sin ventana Spark (%1$s)</string>
+    <string name="log_screen_stuck">Pantalla sin cambios tras varios intentos — espaciando escaneos para no trabar la app</string>
+    <string name="log_opening_offer_detail">Abriendo detalle de oferta…</string>
+    <string name="log_offer_no_buttons">Oferta visible sin botones — intentando abrir</string>
+    <string name="log_dump_opaque">DUMP (%1$s): pantalla opaca — %2$d nodos, %3$d clicables, sin texto legible. Probable FLAG_SECURE o contenido en canvas.</string>
+    <string name="log_dump_header">DUMP (%1$s) acc=%2$b dec=%3$b nodos=%4$d clic=%5$d\n%6$s</string>
+    <string name="log_empty_preview">(vacío)</string>
+    <string name="log_scan_debug">Spark visible — accept=%1$b reject=%2$b | %3$s</string>
+    <string name="log_declined_dialog_closed">RECHAZADA — diálogo cerrado</string>
+    <string name="log_confirm_giveup">Confirmación de rechazo no respondió — saltando a la siguiente oferta</string>
+    <string name="log_declined_confirmed">RECHAZADA — confirmación completada</string>
+    <string name="log_decline_step2">RECHAZO paso 2: diálogo=%1$b rejectBtn=%2$b — reintentando…</string>
+    <string name="log_parse_fail">Botones visibles pero sin datos parseables</string>
+    <string name="log_evaluating">Evaluando: %1$s</string>
+    <string name="log_meets_filters_accept_off">Cumple filtros — auto-aceptar desactivado: %1$s</string>
+    <string name="log_fails_filters_decline_off">No cumple filtros — auto-rechazar desactivado: %1$s</string>
+    <string name="log_accepted">ACEPTADA: %1$s</string>
+    <string name="log_accept_fail">No se pudo pulsar Accept — reintentando</string>
+    <string name="log_declined_step1">RECHAZADA paso 1: %1$s</string>
+    <string name="log_decline_fail">No se pudo pulsar Reject — reintentando</string>
+    <string name="log_unknown_package">Paquete Spark no reconocido: %1$s</string>
+    <string name="log_distance_unknown">distancia ?</string>
+    <string name="log_paused_goal">Meta de ganancias alcanzada — en pausa hasta mañana</string>
+    <string name="log_paused_hours">Fuera del horario — sin actuar sobre ofertas</string>
+    <string name="log_ocr_scanning">Pantalla ilegible — leyéndola con OCR…</string>
+    <string name="log_ocr_offer">Oferta OCR: %1$s</string>
+    <string name="log_ocr_accepted">ACEPTADA (OCR): %1$s</string>
+    <string name="log_ocr_accept_fail">OCR: no se pudo pulsar Aceptar</string>
+    <string name="log_ocr_would_decline">OCR: la oferta no pasa filtros — recházala manual (%1$s)</string>
+    <string name="log_empty_tree">(árbol vacío)</string>
+</resources>

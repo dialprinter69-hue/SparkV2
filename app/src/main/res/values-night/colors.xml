@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Launch window background — matches the Compose DarkBackground so there
+         is no white flash before Compose draws in dark mode. -->
+    <color name="spark_window_bg">#FF04060D</color>
+</resources>

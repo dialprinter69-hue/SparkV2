@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="offer_dropoffs_count">
+        <item quantity="one">%d entrega</item>
+        <item quantity="other">%d entregas</item>
+    </plurals>
+</resources>
