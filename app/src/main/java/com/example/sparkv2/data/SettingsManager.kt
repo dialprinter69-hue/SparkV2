@@ -27,8 +27,6 @@ object SettingsManager {
             .putInt("end_hour", settings.endHour)
             .putBoolean("ocr_fallback", settings.ocrFallbackEnabled)
             .putBoolean("turbo_mode", settings.turboMode)
-            .putBoolean("aggressive_turbo", settings.aggressiveTurbo)
-            .putBoolean("super_aggressive_turbo", settings.superAggressiveTurbo)
             .putBoolean("shop_deliver", settings.shopAndDeliver)
             .putBoolean("shop_deliver_curbside", settings.shopDeliverCurbside)
             .putBoolean("curbside", settings.curbside)
@@ -93,7 +91,7 @@ object SettingsManager {
             dollarsPerMile = prefs.getFloat("dollars_per_mile", 0f),
             maxDistance = prefs.getFloat("max_distance", 15f),
             minPay = prefs.getFloat("min_pay", 0f),
-            numDropoffs = prefs.getInt("num_dropoffs", 1),
+            numDropoffs = prefs.getInt("num_dropoffs", 5),
             minDollarsPerHour = prefs.getFloat("min_per_hour", 0f),
             minBasePay = prefs.getFloat("min_base_pay", 0f),
             maxTipRatio = prefs.getFloat("max_tip_ratio", 1f),
@@ -106,8 +104,6 @@ object SettingsManager {
             endHour = prefs.getInt("end_hour", 22),
             ocrFallbackEnabled = prefs.getBoolean("ocr_fallback", true),
             turboMode = prefs.getBoolean("turbo_mode", false),
-            aggressiveTurbo = prefs.getBoolean("aggressive_turbo", false),
-            superAggressiveTurbo = prefs.getBoolean("super_aggressive_turbo", false),
             shopAndDeliver = prefs.getBoolean("shop_deliver", true),
             shopDeliverCurbside = prefs.getBoolean("shop_deliver_curbside", true),
             curbside = prefs.getBoolean("curbside", true),

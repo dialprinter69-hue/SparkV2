@@ -15,8 +15,6 @@ class SparkSettingsTest {
             autoDecline = false,
             ocrFallbackEnabled = false,
             turboMode = true,
-            aggressiveTurbo = true,
-            superAggressiveTurbo = true,
             debugDump = true,
             dollarsPerMile = 2.5f,
             minPay = 15f,
@@ -31,8 +29,6 @@ class SparkSettingsTest {
         assertFalse(reset.autoDecline)
         assertFalse(reset.ocrFallbackEnabled)
         assertTrue(reset.turboMode)
-        assertTrue(reset.aggressiveTurbo)
-        assertTrue(reset.superAggressiveTurbo)
         assertTrue(reset.debugDump)
         assertEquals(0f, reset.dollarsPerMile)
         assertEquals(0f, reset.minPay)

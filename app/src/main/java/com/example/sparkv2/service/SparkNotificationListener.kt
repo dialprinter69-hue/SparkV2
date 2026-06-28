@@ -15,8 +15,6 @@ class SparkNotificationListener : NotificationListenerService() {
         if (!SparkConstants.isSparkPackage(sbn.packageName)) return
         val settings = SettingsManager.loadSettings(this)
         SparkAutomationHub.turboMode = settings.turboMode
-        SparkAutomationHub.aggressiveTurbo = settings.aggressiveTurbo
-        SparkAutomationHub.superAggressiveTurbo = settings.superAggressiveTurbo
         if (!settings.enabled) return
 
         val now = System.currentTimeMillis()
@@ -33,10 +31,10 @@ class SparkNotificationListener : NotificationListenerService() {
         // accessibility service reads the offer once it's actually on screen.
         OrderLog.alert(getString(R.string.log_spark_alert_scanning))
         SparkAutomationHub.markAlertBoost()
-        SparkAutomationHub.requestScan(
-            "notification",
-            delayMs = ScanTiming.notificationScanDelay(speed),
-        )
+        // Scan immediately in case the offer screen is already up — this shaves the fixed
+        // notification delay off detection — then keep the staggered follow-ups for the case
+        // where the screen is still coming to the foreground.
+        SparkAutomationHub.requestScan("notification", delayMs = 0)
         SparkAutomationHub.service?.scheduleFollowUpScans()
     }
 

@@ -10,15 +10,7 @@ object SparkAutomationHub {
     @Volatile
     var turboMode: Boolean = false
 
-    /** Mirrors [SparkSettings.aggressiveTurbo]; only applies when [turboMode] is on. */
-    @Volatile
-    var aggressiveTurbo: Boolean = false
-
-    /** Mirrors [SparkSettings.superAggressiveTurbo]; requires turbo + aggressive. */
-    @Volatile
-    var superAggressiveTurbo: Boolean = false
-
-    fun speed(): SpeedConfig = SpeedConfig(turboMode, aggressiveTurbo, superAggressiveTurbo)
+    fun speed(): SpeedConfig = SpeedConfig(turboMode)
 
     /** After a Spark alert, scans run faster for this window. */
     @Volatile

@@ -149,8 +149,6 @@ fun SparkBotScreen(modifier: Modifier = Modifier) {
     fun persist(newSettings: SparkSettings) {
         settings = newSettings
         SparkAutomationHub.turboMode = newSettings.turboMode
-        SparkAutomationHub.aggressiveTurbo = newSettings.aggressiveTurbo
-        SparkAutomationHub.superAggressiveTurbo = newSettings.superAggressiveTurbo
         SettingsManager.saveSettings(context, newSettings)
     }
 
@@ -198,13 +196,9 @@ fun SparkBotScreen(modifier: Modifier = Modifier) {
                     SparkBotController.syncForegroundService(context)
                     OrderLog.warn(context.getString(R.string.log_start_blocked))
                     SparkAutomationHub.turboMode = disabled.turboMode
-                    SparkAutomationHub.aggressiveTurbo = disabled.aggressiveTurbo
-                    SparkAutomationHub.superAggressiveTurbo = disabled.superAggressiveTurbo
                     disabled
                 } else {
                     SparkAutomationHub.turboMode = fresh.turboMode
-                    SparkAutomationHub.aggressiveTurbo = fresh.aggressiveTurbo
-                    SparkAutomationHub.superAggressiveTurbo = fresh.superAggressiveTurbo
                     fresh
                 }
             }
@@ -323,21 +317,11 @@ fun SparkBotScreen(modifier: Modifier = Modifier) {
             HeroSection(
                 running = settings.enabled,
                 turboMode = settings.turboMode,
-                aggressiveTurbo = settings.aggressiveTurbo,
-                superAggressiveTurbo = settings.superAggressiveTurbo,
                 canStart = canStart,
                 accessibilityEnabled = accessibilityEnabled,
                 notificationEnabled = notificationEnabled,
                 onToggle = ::toggleBot,
-                onTurboChange = { enabled ->
-                    update {
-                        it.copy(
-                            turboMode = enabled,
-                            aggressiveTurbo = if (enabled) it.aggressiveTurbo else false,
-                            superAggressiveTurbo = if (enabled) it.superAggressiveTurbo else false,
-                        )
-                    }
-                },
+                onTurboChange = { enabled -> update { it.copy(turboMode = enabled) } },
             )
 
             if (!canStart && !settings.enabled) {
@@ -674,8 +658,6 @@ private fun PermissionsBanner() {
 private fun HeroSection(
     running: Boolean,
     turboMode: Boolean,
-    aggressiveTurbo: Boolean,
-    superAggressiveTurbo: Boolean,
     canStart: Boolean,
     accessibilityEnabled: Boolean,
     notificationEnabled: Boolean,
@@ -747,8 +729,6 @@ private fun HeroSection(
                 StatusPill(
                     running = running,
                     turboMode = turboMode,
-                    aggressiveTurbo = aggressiveTurbo,
-                    superAggressiveTurbo = superAggressiveTurbo,
                     accessibility = accessibilityEnabled,
                     notification = notificationEnabled,
                 )
@@ -797,8 +777,6 @@ private fun TurboQuickToggle(checked: Boolean, onCheckedChange: (Boolean) -> Uni
 private fun StatusPill(
     running: Boolean,
     turboMode: Boolean,
-    aggressiveTurbo: Boolean,
-    superAggressiveTurbo: Boolean,
     accessibility: Boolean,
     notification: Boolean,
 ) {
@@ -834,13 +812,7 @@ private fun StatusPill(
                     color = scheme.primaryContainer,
                 ) {
                     Text(
-                        text = stringResource(
-                            when {
-                                superAggressiveTurbo -> R.string.super_aggressive_turbo_badge
-                                aggressiveTurbo -> R.string.aggressive_turbo_badge
-                                else -> R.string.turbo_badge
-                            },
-                        ),
+                        text = stringResource(R.string.turbo_badge),
                         modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
                         style = MaterialTheme.typography.labelSmall,
                         color = scheme.onPrimaryContainer,
@@ -1540,43 +1512,10 @@ private fun AutomationCard(settings: SparkSettings, onUpdate: ((SparkSettings) -
             checked = settings.turboMode,
             onCheckedChange = { enabled ->
                 onUpdate {
-                    it.copy(
-                        turboMode = enabled,
-                        aggressiveTurbo = if (enabled) it.aggressiveTurbo else false,
-                        superAggressiveTurbo = if (enabled) it.superAggressiveTurbo else false,
-                    )
+                    it.copy(turboMode = enabled)
                 }
             },
         )
-        if (settings.turboMode) {
-            Spacer(Modifier.height(12.dp))
-            HorizontalDivider(color = scheme.outline)
-            Spacer(Modifier.height(12.dp))
-            AutomationToggleRow(
-                title = stringResource(R.string.aggressive_turbo),
-                subtitle = stringResource(R.string.aggressive_turbo_sub),
-                checked = settings.aggressiveTurbo,
-                onCheckedChange = { enabled ->
-                    onUpdate {
-                        it.copy(
-                            aggressiveTurbo = enabled,
-                            superAggressiveTurbo = if (enabled) it.superAggressiveTurbo else false,
-                        )
-                    }
-                },
-            )
-        }
-        if (settings.turboMode && settings.aggressiveTurbo) {
-            Spacer(Modifier.height(12.dp))
-            HorizontalDivider(color = scheme.outline)
-            Spacer(Modifier.height(12.dp))
-            AutomationToggleRow(
-                title = stringResource(R.string.super_aggressive_turbo),
-                subtitle = stringResource(R.string.super_aggressive_turbo_sub),
-                checked = settings.superAggressiveTurbo,
-                onCheckedChange = { enabled -> onUpdate { it.copy(superAggressiveTurbo = enabled) } },
-            )
-        }
         Spacer(Modifier.height(12.dp))
         HorizontalDivider(color = scheme.outline)
         Spacer(Modifier.height(12.dp))
@@ -1630,7 +1569,7 @@ private fun AutomationToggleRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(modifier = Modifier.weight(1f).padding(end = 12.dp)) {
-            Text(text = title, style = MaterialTheme.typography.titleSmall)
+            Text(text = title, style = MaterialTheme.typography.titleSmall, color = scheme.onSurface)
             Text(
                 text = subtitle,
                 style = MaterialTheme.typography.bodySmall,
@@ -1771,12 +1710,14 @@ private fun FiltersCard(settings: SparkSettings, onUpdate: ((SparkSettings) -> S
             onValueCommitted = { v -> onUpdate { it.copy(minPay = v) } },
         )
 
-        Stepper(
+        SliderSetting(
             label = stringResource(R.string.max_dropoffs),
-            value = settings.numDropoffs,
-            min = 1,
-            max = 5,
-            onValueChange = { v -> onUpdate { it.copy(numDropoffs = v) } },
+            formatValue = { it.toInt().toString() },
+            hint = null,
+            value = settings.numDropoffs.toFloat(),
+            valueRange = 1f..10f,
+            steps = 8,
+            onValueCommitted = { v -> onUpdate { it.copy(numDropoffs = v.toInt()) } },
         )
 
         Spacer(Modifier.height(16.dp))
@@ -1937,6 +1878,7 @@ private fun StepperButton(
 
 @Composable
 private fun TypeChip(label: String, selected: Boolean, onClick: () -> Unit) {
+    val scheme = MaterialTheme.colorScheme
     FilterChip(
         selected = selected,
         onClick = onClick,
@@ -1944,8 +1886,16 @@ private fun TypeChip(label: String, selected: Boolean, onClick: () -> Unit) {
         shape = CircleShape,
         modifier = Modifier.semantics { contentDescription = label },
         colors = FilterChipDefaults.filterChipColors(
-            selectedContainerColor = MaterialTheme.colorScheme.primaryContainer,
-            selectedLabelColor = MaterialTheme.colorScheme.onPrimaryContainer,
+            containerColor = scheme.surfaceVariant,
+            labelColor = scheme.onSurfaceVariant,
+            selectedContainerColor = scheme.primaryContainer,
+            selectedLabelColor = scheme.onPrimaryContainer,
+        ),
+        border = FilterChipDefaults.filterChipBorder(
+            enabled = true,
+            selected = selected,
+            borderColor = scheme.outline,
+            selectedBorderColor = scheme.primary.copy(alpha = 0.4f),
         ),
     )
 }

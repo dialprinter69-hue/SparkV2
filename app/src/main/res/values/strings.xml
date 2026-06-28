@@ -77,14 +77,8 @@
     <string name="ocr_fallback">OCR fallback</string>
     <string name="ocr_fallback_sub">Read offers by screenshot when Spark\'s screen is unreadable (canvas). Auto-accept only</string>
     <string name="turbo_mode">Turbo mode</string>
-    <string name="turbo_mode_sub">Faster scans and taps. Turn off if Spark Driver starts lagging</string>
-    <string name="aggressive_turbo">Aggressive turbo</string>
-    <string name="aggressive_turbo_sub">Minimum delays — fastest reactions. Requires turbo. Turn off if Spark misses taps or lags</string>
+    <string name="turbo_mode_sub">Lowest-delay scans and taps for the fastest accept/decline. Turn off if Spark Driver starts lagging or missing taps</string>
     <string name="turbo_badge">TURBO</string>
-    <string name="aggressive_turbo_badge">TURBO+</string>
-    <string name="super_aggressive_turbo">Super-aggressive turbo</string>
-    <string name="super_aggressive_turbo_sub">Experimental max speed — for testing only. Requires aggressive turbo. Turn off if Spark lags or misses taps</string>
-    <string name="super_aggressive_turbo_badge">MAX</string>
     <string name="section_filters">Offer filters</string>
     <string name="filters_hint">An offer is accepted only if it meets ALL filters.</string>
     <string name="reset_filters">Reset</string>

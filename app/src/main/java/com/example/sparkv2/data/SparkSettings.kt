@@ -7,7 +7,7 @@ data class SparkSettings(
     val dollarsPerMile: Float = 0f,
     val maxDistance: Float = 15f,
     val minPay: Float = 0f,
-    val numDropoffs: Int = 1,
+    val numDropoffs: Int = 5,
     /** Minimum $/hour using the offer's estimated time. 0 = no minimum. */
     val minDollarsPerHour: Float = 0f,
     /** Minimum guaranteed base pay (excludes tip). 0 = no minimum. Anti tip-bait. */
@@ -38,20 +38,10 @@ data class SparkSettings(
      */
     val ocrFallbackEnabled: Boolean = true,
     /**
-     * Turbo mode: shorter scan/action delays for faster accept/decline. May make Spark Driver
-     * feel heavier on slower phones — turn off if the app starts lagging.
+     * Turbo mode: lowest safe scan/action delays for the fastest accept/decline. May make Spark
+     * Driver feel heavier on slower phones — turn off if the app starts lagging or missing taps.
      */
     val turboMode: Boolean = false,
-    /**
-     * Aggressive turbo: minimum delays and faster follow-up scans. Requires [turboMode]. May make
-     * Spark Driver lag or miss taps on slower phones — turn off if that happens.
-     */
-    val aggressiveTurbo: Boolean = false,
-    /**
-     * Super-aggressive turbo: experimental floor delays for maximum speed. Requires [turboMode]
-     * and [aggressiveTurbo]. Turn off immediately if Spark Driver lags or taps miss.
-     */
-    val superAggressiveTurbo: Boolean = false,
     // Order types — all enabled by default so the bot considers every offer type out of the box.
     val shopAndDeliver: Boolean = true,
     val shopDeliverCurbside: Boolean = true,
@@ -78,7 +68,7 @@ data class SparkSettings(
         dollarsPerMile = 0f,
         maxDistance = 15f,
         minPay = 0f,
-        numDropoffs = 1,
+        numDropoffs = 5,
         minDollarsPerHour = 0f,
         minBasePay = 0f,
         maxTipRatio = 1f,

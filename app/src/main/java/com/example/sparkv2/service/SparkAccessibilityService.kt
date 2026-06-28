@@ -728,14 +728,10 @@ class SparkAccessibilityService : AccessibilityService() {
         val now = System.currentTimeMillis()
         cachedSettings?.takeIf { now - settingsLoadedAtMs < SETTINGS_CACHE_MS }?.let {
             SparkAutomationHub.turboMode = it.turboMode
-            SparkAutomationHub.aggressiveTurbo = it.aggressiveTurbo
-            SparkAutomationHub.superAggressiveTurbo = it.superAggressiveTurbo
             return it
         }
         return SettingsManager.loadSettings(this).also {
             SparkAutomationHub.turboMode = it.turboMode
-            SparkAutomationHub.aggressiveTurbo = it.aggressiveTurbo
-            SparkAutomationHub.superAggressiveTurbo = it.superAggressiveTurbo
             cachedSettings = it
             settingsLoadedAtMs = now
         }
